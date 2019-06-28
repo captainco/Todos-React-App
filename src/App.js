@@ -7,11 +7,7 @@ import './App.css';
 
 export default class App extends Component {
     state = {
-    todos: [
-            // {name:'Todo 1', done:true},
-            // {name:'Todo 2', done:false},
-            // {name:'Todo 3', done:false}
-        ]
+        todos: []
     }
 
     getTodo() {
@@ -19,23 +15,6 @@ export default class App extends Component {
             .then(res => res.json())
             .then(todo => this.setState({todos: todo}));
     }
-
-    // deleteTodo() {
-    //     this.state.todos.forEach(todo => {
-    //         if (todo.done) {
-    //             fetch('http://todos.sphinx-demo.com/todos', {
-    //                 method: 'DELETE',
-    //                 headers: {
-    //                     'Content-Type': 'application/json',
-    //                 },
-    //                 body: JSON.stringify(todo.done),
-    //             })
-    //             .then(() => {
-    //                 this.getTodo();
-    //             });    
-    //         }
-    //     })
-    // }
 
     addNewTodo(newTodo) {
 
@@ -76,10 +55,10 @@ export default class App extends Component {
 
     clearDone() {
         const notFinishedTodo = this.state.todos.filter((todo) => !todo.done);
+        this.deleteTodo();
         this.setState({
             todos: notFinishedTodo
         })
-        this.deleteTodo();
     }
 
     selectAll(right) {
