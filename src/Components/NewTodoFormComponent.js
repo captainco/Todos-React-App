@@ -19,20 +19,6 @@ export default class NewTodoForm extends React.Component {
             this.onInputChange(even.target.value);
           }} value={this.state.newTodoName}></input>
           &nbsp;
-          {/* <input type="submit"
-              onClick={
-                () => {
-                  onNewToDo(
-                    {
-                      name: this.state.newTodoName,
-                      done: false
-                    }
-                  )
-                }
-              }
-              value='ADD'>            
-          </input> */}
-
           <button types="submit" onClick={
             () => {
               onNewToDo(
@@ -43,7 +29,6 @@ export default class NewTodoForm extends React.Component {
               )
             }
           }>Add</button>
-  
         </div>
       )
     }
